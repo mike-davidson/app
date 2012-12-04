@@ -2,6 +2,10 @@
 
 require_relative 'git_utils.rb'
 
+def bundler_exists
+  begin `bundle --version`; true; rescue; false; end
+end
+
 def install_utilities
   `gem install bundler`
   `bundle install`
@@ -16,6 +20,6 @@ def create_first_branches
   %w[clean master starting_point].each{|branch| checkout(branch)}
 end
 
-install_utilities
+install_utilities unless bundler_exists
 configure_remote
 create_first_branches
