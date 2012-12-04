@@ -3,7 +3,7 @@
 require_relative 'git_utils.rb'
 
 def bundler_exists
-  begin `bundle --version`; true; rescue; false; end
+  begin `bundle --version` =~ /Bundler version/; rescue ; false; end
 end
 
 def install_utilities
