@@ -2,6 +2,6 @@
 {
   public interface IContainRequestDetails
   {
-     
+      bool hasBeenProcessed();
   }
 }

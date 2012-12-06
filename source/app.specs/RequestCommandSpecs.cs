@@ -23,9 +23,9 @@ namespace app.specs
       };
 
       Because b = () =>
-        sut.process(request);
+        sut.can_run(request);
 
-      It first_observation = () =>
+      It should_ensure_that_it_has_not_already_been_processed = () => request.hasBeenProcessed().ShouldBeFalse();
 
       static IContainRequestDetails request;        
         
