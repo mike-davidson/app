@@ -42,6 +42,19 @@ namespace app.specs
 
         static IRunOneRequest the_command_that_can_run;
       }
+      public class and_it_does_not_have_the_command
+      {
+        Establish c = () =>
+        {
+          the_special_case = fake.an<IRunOneRequest>();
+          depends.on<IHandleTheScenarioOfCreatingTheMissingCommand>(() => the_special_case);
+        };
+
+        It should_return_the_special_case = () =>
+          result.ShouldEqual(the_special_case);
+
+        static IRunOneRequest the_special_case;
+      }
 
       static IContainRequestDetails the_request;
       static IRunOneRequest result;
