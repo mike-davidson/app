@@ -2,6 +2,6 @@
 {
   public interface IProcessRequests
   {
-    void process(object the_request);
+    void process(IContainRequestDetails the_request);
   }
 }

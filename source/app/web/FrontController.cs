@@ -2,17 +2,16 @@
 {
   public class FrontController : IProcessRequests
   {
-    IFindCommands findCommands;
+    IFindCommands command_registry;
 
-    public FrontController(IFindCommands findCommands)
+    public FrontController(IFindCommands command_registry)
     {
-       this.findCommands = findCommands;
+      this.command_registry = command_registry;
     }
 
-    public void process(object the_request)
+    public void process(IContainRequestDetails the_request)
     {
-      var command = findCommands.get_the_command_that_can_run(the_request);
-      command.process(the_request);
+      command_registry.get_the_command_that_can_run(the_request).process(the_request);
     }
   }
 }

@@ -2,6 +2,7 @@
 {
   public interface IRunOneRequest 
   {
-    void process(object the_request);
+    void process(IContainRequestDetails the_request);
+    bool can_run(IContainRequestDetails the_request);
   }
 }
