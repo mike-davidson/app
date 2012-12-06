@@ -22,7 +22,10 @@ namespace app.specs
       Establish c = () =>
       {
         request = fake.an<IContainRequestDetails>();
+        product_finder = depends.on<IFindProducts>();
         display_engine = depends.on<IDisplayInformation>();
+        the_products_in_a_department = new List<Product>();
+        product_finder.setup(x => x.get_the_products_in_a_department()).Return(the_products_in_a_department);
       };
 
       Because b = () =>
@@ -34,7 +37,8 @@ namespace app.specs
 
       static IDisplayInformation display_engine;
       static IContainRequestDetails request;
-      static IEnumerable<....> the_products_in_a_department;
+      static IEnumerable<Product> the_products_in_a_department;
+      static IFindProducts product_finder;
     }
   }
 }
