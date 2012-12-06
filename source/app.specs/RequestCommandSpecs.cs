@@ -23,12 +23,13 @@ namespace app.specs
       };
 
       Because b = () =>
-        sut.process(request);
+        result = sut.can_run(request);
 
-      It first_observation = () =>
-
-      static IContainRequestDetails request;        
-        
+        private It should_return_true = () =>
+          result.ShouldBeTrue();  
+      
+      static IContainRequestDetails request;
+      static bool result;
     }
   }
 }
