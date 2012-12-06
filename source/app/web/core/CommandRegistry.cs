@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using app.web.core.stubs;
 
-namespace app.web
+namespace app.web.core
 {
   public class CommandRegistry : IFindCommands
   {
@@ -12,6 +14,13 @@ namespace app.web
     {
       this.all_commands = all_commands;
       this.special_case_factory = special_case_factory;
+    }
+
+    public CommandRegistry():this(new StubSetOfCommands(),() =>
+    {
+      throw new NotImplementedException("You dont have the command, boohoo");
+    })
+    {
     }
 
     public IRunOneRequest get_the_command_that_can_run(IContainRequestDetails the_request)

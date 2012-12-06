@@ -1,4 +1,4 @@
-﻿namespace app.web
+﻿namespace app.web.core
 {
   public class FrontController : IProcessRequests
   {
@@ -7,6 +7,10 @@
     public FrontController(IFindCommands command_registry)
     {
       this.command_registry = command_registry;
+    }
+
+    public FrontController():this(new CommandRegistry())
+    {
     }
 
     public void process(IContainRequestDetails the_request)
