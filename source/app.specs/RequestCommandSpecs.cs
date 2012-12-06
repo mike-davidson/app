@@ -27,8 +27,8 @@ namespace app.specs
 
       It should_ensure_that_it_has_not_already_been_processed = () => request.hasBeenProcessed().ShouldBeFalse();
 
-      static IContainRequestDetails request;        
-        
+      static IContainRequestDetails request;
+       
     }
   }
 }
