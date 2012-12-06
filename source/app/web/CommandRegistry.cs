@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace app.web
 {
@@ -13,12 +14,7 @@ namespace app.web
 
     public IRunOneRequest get_the_command_that_can_run(IContainRequestDetails the_request)
     {
-      foreach (var runOneRequest in all_commands)
-      {
-        if (runOneRequest.can_run(the_request)) return  runOneRequest;
-      }
-
-      return null;
+      return all_commands.First(x => x.can_run(the_request));
     }
   }
 }
