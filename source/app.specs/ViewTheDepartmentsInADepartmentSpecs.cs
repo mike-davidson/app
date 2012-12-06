@@ -22,12 +22,11 @@ namespace app.specs
         {
             request = fake.an<IContainRequestDetails>();
             department_finder = depends.on<IFindDepartments>();
-            the_sub_departments = new List<DepartmentItem>();
             display_engine = depends.on<IDisplayInformation>();
-            department_id = 1;
+            the_sub_departments = new List<DepartmentItem>();
 
-            request.setup(x => x.get_the_department()).Return(department_id);
-            department_finder.setup(x => x.get_the_departments_within_the_main_department(department_id)).Return(the_sub_departments);
+            request.setup(x => x.map<ViewDepartmentInDepartmentRequest>()).Return(departments_request);
+            department_finder.setup(x => x.get_the_departments_using(departments_request)).Return(the_sub_departments);
         };
 
         Because b = () =>
@@ -47,6 +46,7 @@ namespace app.specs
         static IEnumerable<DepartmentItem> the_sub_departments;
         static IDisplayInformation display_engine;
         static int department_id;
+        static ViewDepartmentInDepartmentRequest departments_request;
     }
   }
 }

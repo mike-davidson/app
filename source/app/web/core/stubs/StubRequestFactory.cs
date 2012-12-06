@@ -1,5 +1,5 @@
-﻿using System.Web;
-using app.web.application.catalogbrowsing;
+﻿using System;
+using System.Web;
 
 namespace app.web.core.stubs
 {
@@ -12,10 +12,10 @@ namespace app.web.core.stubs
 
     class StubRequest : IContainRequestDetails
     {
-        public int get_the_department()
-        {
-           return 1;
-        }
+      public InputModel map<InputModel>()
+      {
+        return Activator.CreateInstance<InputModel>();
+      }
     }
   }
 }
