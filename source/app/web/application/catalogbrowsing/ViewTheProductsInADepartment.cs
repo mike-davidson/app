@@ -1,23 +1,29 @@
-﻿using app.web.core;
+﻿using app.web.application.catalogbrowsing.stubs;
+using app.web.core;
+using app.web.core.stubs;
 
 namespace app.web.application.catalogbrowsing
 {
   public class ViewTheProductsInADepartment : ISupportAUserFeature
   {
-      IFindProducts product_repository;
-      IDisplayInformation display_engine;
-      
+    IFindInformationInTheStore store_catalog;
+    IDisplayInformation display_engine;
 
-    public ViewTheProductsInADepartment(IFindProducts product_repository,
-                                            IDisplayInformation product_viewer)
+    public ViewTheProductsInADepartment(IFindInformationInTheStore store_catalog,
+                                        IDisplayInformation product_viewer)
     {
-      this.product_repository = product_repository;
+      this.store_catalog = store_catalog;
       this.display_engine = product_viewer;
+    }
+
+    public ViewTheProductsInADepartment() : this(new StubStoreCatalog(),
+                                                 new StubDisplayEngine())
+    {
     }
 
     public void process(IContainRequestDetails request)
     {
-      display_engine.display(product_repository.get_the_products_in_a_department());
+      display_engine.display(store_catalog.get_the_products_using(request.map<ViewTheProductsInDepartmentRequest>()));
     }
   }
 }

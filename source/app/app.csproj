@@ -77,7 +77,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="web\application\catalogbrowsing\IFindProducts .cs" />
     <Compile Include="web\application\catalogbrowsing\DepartmentItem.cs" />
     <Compile Include="web\application\catalogbrowsing\IFindDepartments .cs" />
     <Compile Include="web\application\catalogbrowsing\Product.cs" />
@@ -85,6 +84,7 @@
     <Compile Include="web\application\catalogbrowsing\ViewDepartmentInDepartmentRequest.cs" />
     <Compile Include="web\application\catalogbrowsing\ViewTheMainDepartmentsInTheStore.cs" />
     <Compile Include="web\application\catalogbrowsing\ViewTheProductsInADepartment.cs" />
+    <Compile Include="web\application\catalogbrowsing\ViewTheProductsInDepartmentRequest.cs" />
     <Compile Include="web\core\aspnet\ASPNetHandler.cs" />
     <Compile Include="web\core\CommandRegistry.cs" />
     <Compile Include="web\core\FrontController.cs" />

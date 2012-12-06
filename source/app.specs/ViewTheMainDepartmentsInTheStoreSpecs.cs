@@ -20,11 +20,11 @@ namespace app.specs
       Establish c = () =>
       {
         request = fake.an<IContainRequestDetails>();
-        department_finder = depends.on<IFindDepartments>();
+        information_in_the_store_finder = depends.on<IFindInformationInTheStore>();
         the_main_departments = new List<DepartmentItem>();
         display_engine = depends.on<IDisplayInformation>();
 
-        department_finder.setup(x => x.get_the_main_departments_in_the_store()).Return(the_main_departments);
+        information_in_the_store_finder.setup(x => x.get_the_main_departments_in_the_store()).Return(the_main_departments);
       };
 
       Because b = () =>
@@ -37,7 +37,7 @@ namespace app.specs
       It should_display_the_main_departments = () =>
         display_engine.received(x => x.display(the_main_departments));
 
-      static IFindDepartments department_finder;
+      static IFindInformationInTheStore information_in_the_store_finder;
       static IContainRequestDetails request;
       static IEnumerable<DepartmentItem> the_main_departments;
       static IDisplayInformation display_engine;

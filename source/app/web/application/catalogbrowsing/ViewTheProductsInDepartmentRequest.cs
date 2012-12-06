@@ -1,7 +1,7 @@
 ﻿namespace app.web.application.catalogbrowsing
 {
-  public class Product
+  public class ViewTheProductsInDepartmentRequest
   {
-    public string name { get; set; }
+     
   }
 }

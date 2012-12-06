@@ -6,24 +6,24 @@ namespace app.web.application.catalogbrowsing
 {
   public class ViewTheDepartmentsInADepartment : ISupportAUserFeature
   {
-    IFindDepartments department_repository;
+    IFindInformationInTheStore store_catalog;
     IDisplayInformation display_engine;
 
-    public ViewTheDepartmentsInADepartment() : this(new StubDepartmentRepository(),
+    public ViewTheDepartmentsInADepartment() : this(new StubStoreCatalog(),
                                                     new StubDisplayEngine())
     {
     }
 
-    public ViewTheDepartmentsInADepartment(IFindDepartments department_repository,
+    public ViewTheDepartmentsInADepartment(IFindInformationInTheStore information_in_the_store_catalog,
                                            IDisplayInformation department_viewer)
     {
-      this.department_repository = department_repository;
+      this.store_catalog = information_in_the_store_catalog;
       this.display_engine = department_viewer;
     }
 
     public void process(IContainRequestDetails request)
     {
-      display_engine.display(department_repository.get_the_departments_using(request.map<ViewDepartmentInDepartmentRequest>()));
+      display_engine.display(store_catalog.get_the_departments_using(request.map<ViewDepartmentInDepartmentRequest>()));
     }
   }
 }

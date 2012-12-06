@@ -2,6 +2,7 @@
 <%@ Page Language="c#" AutoEventWireup="true" 
 Inherits="app.web.ui.views.ProductBrowser"
 CodeFile="ProductBrowser.aspx.cs" MasterPageFile="App.master" %>
+<%@ Import Namespace="app.web.application.catalogbrowsing" %>
 
 <asp:Content ID="content" runat="server" ContentPlaceHolderID="childContentPlaceHolder">
     <form></form>
@@ -17,7 +18,7 @@ CodeFile="ProductBrowser.aspx.cs" MasterPageFile="App.master" %>
                         <th></th>
                     </tr>
                 </thead>
-        <% foreach (var product in ((IEnumerable<...>) this.Context.Items["blah"])){ %>
+        <% foreach (var product in ((IEnumerable<Product>)this.Context.Items["blah"])){ %>
         <tr class="nonShadedRow">                    
             <td class="ListItem">                    
                 <a href='#'><%= product.name %></a>
