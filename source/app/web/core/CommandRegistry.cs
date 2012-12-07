@@ -16,7 +16,7 @@ namespace app.web.core
       this.special_case_factory = special_case_factory;
     }
 
-    public CommandRegistry():this(new StubSetOfCommands(),() =>
+    public CommandRegistry():this(new StubSetOfCommands(null),() =>
     {
       throw new NotImplementedException("You dont have the command, boohoo");
     })

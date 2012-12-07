@@ -6,6 +6,15 @@ namespace app.web.core.stubs
 {
   public class StubSetOfCommands : IEnumerable<IRunOneRequest>
   {
+
+      private ISupportAUserFeature user_feature_requested;
+
+      public StubSetOfCommands(ISupportAUserFeature user_feature_requested)
+      {
+          this.user_feature_requested = user_feature_requested;
+      }
+    
+      
     IEnumerator IEnumerable.GetEnumerator()
     {
       return GetEnumerator();
@@ -13,9 +22,7 @@ namespace app.web.core.stubs
 
     public IEnumerator<IRunOneRequest> GetEnumerator()
     {
-      yield return new RequestCommand(x => true, new ViewTheProductsInADepartment());
-      yield return new RequestCommand(x => true, new ViewTheDepartmentsInADepartment());
-      yield return new RequestCommand(x => true, new ViewTheMainDepartmentsInTheStore());
+      yield return new RequestCommand(x => true, this.user_feature_requested);
     }
   }
 }

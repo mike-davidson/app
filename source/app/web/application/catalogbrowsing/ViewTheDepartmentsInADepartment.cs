@@ -23,7 +23,7 @@ namespace app.web.application.catalogbrowsing
 
     public void process(IContainRequestDetails request)
     {
-      display_engine.display(store_catalog.get_the_departments_using(request.map<ViewDepartmentInDepartmentRequest>()));
+      display_engine.display(store_catalog.get_the_departments_using(request.map<IFindStoreCatalogRequests>()));
     }
   }
 }

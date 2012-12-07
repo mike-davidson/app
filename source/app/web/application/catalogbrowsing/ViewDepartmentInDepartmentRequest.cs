@@ -1,6 +1,6 @@
 ﻿namespace app.web.application.catalogbrowsing
 {
-  public class ViewDepartmentInDepartmentRequest
+  public class ViewDepartmentInDepartmentRequest : IFindStoreCatalogRequests
   {
      
   }

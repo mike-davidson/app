@@ -79,6 +79,7 @@
   <ItemGroup>
     <Compile Include="web\application\catalogbrowsing\DepartmentItem.cs" />
     <Compile Include="web\application\catalogbrowsing\IFindDepartments .cs" />
+    <Compile Include="web\application\catalogbrowsing\IFindStoreCatalogRequests.cs" />
     <Compile Include="web\application\catalogbrowsing\Product.cs" />
     <Compile Include="web\application\catalogbrowsing\stubs\StubDepartmentRepository.cs" />
     <Compile Include="web\application\catalogbrowsing\ViewDepartmentInDepartmentRequest.cs" />
